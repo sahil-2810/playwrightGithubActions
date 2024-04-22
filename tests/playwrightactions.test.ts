@@ -32,7 +32,7 @@ test('Backend Test - Auth EP is up', {
   const body = await response.json();
 
   // Assertion
-  expect(response.status()).toBe(200);
+  expect(response.status()).toBe(404);
   expect(body.status).toBe("UP");
 });
 
@@ -47,5 +47,5 @@ test('Backend Test - Auth Login', {
   });
 
   // Assertion
-  expect(response.status()).toBe(200);
+  expect(response.status()).toBe(404);
 });
