@@ -3,6 +3,8 @@ import { test, expect } from '@playwright/test';
 const usernameData = "admin";
 const passwordData = "password";
 
+
+// Test GitHub Actions #2
 test('UI - Login User', { 
   tag: ['@ProjectName', '@Tests', '@LoginUser', '@UI', '@FrontendTest'] 
 }, async ({ page }) => {
