@@ -1,0 +1,17 @@
+{
+  "name": "playwrightgithubactions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:ui": "npx playwright test --grep @UI",
+    "test:api": "npx playwright test --grep @API"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.43.1",
+    "@types/node": "^20.12.7"
+  }
+}
