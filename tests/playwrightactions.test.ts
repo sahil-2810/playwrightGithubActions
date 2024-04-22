@@ -4,7 +4,7 @@ const usernameData = "admin";
 const passwordData = "password";
 
 
-// Test GitHub Actions will fail on testBranch #4
+// Test GitHub Actions will pass on testBranch #5
 test('UI - Login User', { 
   tag: ['@ProjectName', '@Tests', '@LoginUser', '@UI', '@FrontendTest'] 
 }, async ({ page }) => {
@@ -13,7 +13,7 @@ test('UI - Login User', {
   const loginButton = page.locator(`button[type='submit']`);
   const navBarText = page.locator(`a.navbar-brand.mx-auto`);
 
-  await page.goto(`/#/adminTestFail`);
+  await page.goto(`/#/admin`);
   await username.type(usernameData);
   await password.type(passwordData);
   await loginButton.click();
@@ -32,7 +32,7 @@ test('Backend Test - Auth EP is up', {
   const body = await response.json();
 
   // Assertion
-  expect(response.status()).toBe(404);
+  expect(response.status()).toBe(200);
   expect(body.status).toBe("UP");
 });
 
@@ -47,5 +47,5 @@ test('Backend Test - Auth Login', {
   });
 
   // Assertion
-  expect(response.status()).toBe(404);
+  expect(response.status()).toBe(200);
 });
