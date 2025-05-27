@@ -6,8 +6,8 @@ on:
     branches: [ main, master ]
 jobs:
   test_ui:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    runs-on: on-prem
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,8 +27,8 @@ jobs:
           retention-days: 30
 
   test_api:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    runs-on: on-prem
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
