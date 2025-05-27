@@ -14,15 +14,21 @@ test('UI - Login User', {
   const navBarText = page.locator(`a.navbar-brand.mx-auto`);
 
   await page.goto(`/#/admin`);
+
+  await page.waitForSelector("input[data-testid='username']", { timeout: 10000 });
+  await page.waitForSelector("input[data-testid='password']", { timeout: 10000 });
+  await page.waitForSelector("button[type='submit']", { timeout: 10000 });
+
   await username.type(usernameData);
   await password.type(passwordData);
   await loginButton.click();
 
+  await navBarText.waitFor({ timeout: 10000 });
+
   const expectedText = "B&B Booking Management";
   const actualText = await navBarText.textContent();
 
-  // Assertion
-  expect(actualText).toBe(expectedText);
+  expect(actualText?.trim()).toBe(expectedText);
 });
 
 test('Backend Test - Auth EP is up', { 
